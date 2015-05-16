@@ -1,0 +1,204 @@
+<!DOCTYPE HTML>
+<!--
+	Miniport by HTML5 UP
+	html5up.net | @n33co
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+{% load staticfiles %}
+{% load thumbnail %}
+
+{% block scripts %}
+
+<!--[if lte IE 8]><script src="{% static 'photo/css/ie/html5shiv.js' %}"></script><![endif]-->
+<script src="{% static 'photo/js/jquery.min.js' %}"></script>
+<script src="{% static 'photo/js/skel.min.js' %}"></script>
+<script src="{% static 'photo/js/jquery.scrolly.min.js' %}"></script>
+<script src="{% static 'photo/js/lightbox.min.js' %}"></script>
+<script src="{% static 'photo/js/init.js' %}"></script>
+
+                  <script src="{% static 'photo/js/jquery.validationEngine-ru.js' %}"></script>
+<script src="{% static 'photo/js/jquery.validationEngine.js' %}"></script>
+
+<script>
+      jQuery(document).ready(function(){
+        // binds form submission and fields to the validation engine
+        jQuery("#formID").validationEngine();
+      });
+
+      /**
+      *
+      * @param {jqObject} the field where the validation applies
+      * @param {Array[String]} validation rules for this field
+      * @param {int} rule index
+      * @param {Map} form options
+      * @return an error string if validation failed
+      */
+    </script>
+
+    <link rel="stylesheet" type="text/css" href="{% static 'photo/css/validationEngine.jquery.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'photo/css/lightbox.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'photo/css/skel.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'photo/css/style.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'photo/css/style-desktop.css' %}" />
+
+        <!--[if lte IE 8]><link rel="stylesheet" href="{% static 'photo/css/ie/v8.css' %}" /><![endif]-->
+		<!--[if lte IE 9]><link rel="stylesheet" href="{% static 'photo/css/ie/v9.css' %}" /><![endif]-->
+
+{% endblock %}
+
+<head lang="en">
+		<title>Фотограф Анастасия Травкина</title>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="description" content="Сайт семейного фотографа Анастасии Травкиной. Направления, в которых я работаю: свадебная съемка, пленер, семейная съемка, любовные истории, студийная съемка" />
+		<meta name="keywords" content="фотография Тула Анастасия Травкина свадебная семейная студийная пленер фотосъемка  фото съемка" />
+        <link rel="icon" href="{% static 'photo/images/favicon.ico' %}" type="image/x-icon">
+        <link rel="shortcut icon" href="{% static 'photo/images/favicon.ico' %}" type="image/x-icon">
+        <script src='https://www.google.com/recaptcha/api.js'></script>
+	</head>
+	<body>
+
+        <noindex>
+        <!--LiveInternet counter-->
+        <script type="text/javascript"><!--
+        new Image().src = "//counter.yadro.ru/hit?r"+
+        escape(document.referrer)+((typeof(screen)=="undefined")?"":
+        ";s"+screen.width+"*"+screen.height+"*"+(screen.colorDepth?
+        screen.colorDepth:screen.pixelDepth))+";u"+escape(document.URL)+
+        ";"+Math.random();//--></script>
+        <!--/LiveInternet-->
+        </noindex>
+
+		<!-- Nav -->
+			<nav id="nav">
+				<ul class="container">
+                    <li><a href="{% url 'photo:index' %}">Главная</a></li>
+					<li><a href="#portfolio">Портфолио</a></li>
+					<li><a href="#contact">Обратная связь</a></li>
+				</ul>
+			</nav>
+
+		<!-- Portfolio -->
+			<div class="wrapper style3">
+				<article id="portfolio">
+					<header>
+						<h2>{{ album.description }}</h2>
+                        {% if not album.photo_set.all %}
+                            <p>Здесь пока пусто, но мы это скоро исправим.</p>
+                        {% endif %}
+					</header>
+					<div class="container">
+                        <div class="row">
+
+                            {% for photo in album.photo_set.all %}
+
+							<div class="4u">
+
+                                    {% thumbnail photo.image "384x269" crop="center" as thumb %}
+                                        <a href="{{ photo.image.url }}" data-lightbox="gallery" data-title="{{ photo.title }}" class="image featured"><img src="{{ thumb.url }}" width="{{ thumb.width }}" height="{{ thumb.height }}" alt="" /></a>
+									{% endthumbnail %}
+
+							</div>
+                            {% endfor %}
+						</div>
+					</div>
+					<footer>
+						{% if album.photo_set.all %}
+                            <p>Вам понравились мои работы? Тогда свяжитесь со мной. </p>
+                        {% endif %}
+						<a href="#contact" class="button big scrolly">Написать письмо</a>
+					</footer>
+				</article>
+			</div>
+
+		<!-- Contact -->
+			<div class="wrapper style4">
+				<article id="contact" class="container 75%">
+					<header>
+						<h2>Напишите мне письмо.</h2>
+						<p>Задавайте вопросы, я Вам обязательно отвечу.</p>
+					</header>
+					<div>
+						<div class="row">
+							<div class  ="12u">
+								<form method="post" action="{% url 'photo:feedback' %}" id="formID">
+                                    {% csrf_token %}
+									<div>
+										<div class="row">
+											<div class="6u">
+                                                {{ form.name }}
+											</div>
+											<div class="6u">
+                                                {{ form.email }}
+											</div>
+										</div>
+										<div class="row">
+											<div class="12u">
+                                                {{ form.subject }}
+											</div>
+										</div>
+										<div class="row">
+											<div class="12u">
+                                                {{ form.message }}
+											</div>
+										</div>
+										<div class="row">
+                                            <div class="12u">
+                                                <div class="g-recaptcha" style="width: 300px; margin: auto;" data-theme="dark" data-sitekey="6LeekwQTAAAAAKjKmCrLIbxLwtAdbdvQGb4srchd"></div>
+                                            </div>
+                                        </div>
+										<div class="row 200%">
+											<div class="12u">
+												<ul class="actions">
+													<li><input type="submit" class="submit" value="Отправить" /></li>
+													<li><input type="reset" value="Очистить" class="alt" /></li>
+												</ul>
+											</div>
+										</div>
+									</div>
+								</form>
+							</div>
+						</div>
+						<div class="row">
+							<div class="12u">
+								<hr />
+								<h3>Ищите меня в социальных сетях</h3>
+								<ul class="social">
+									<li><a href="http://vk.com/travkina.anastasia_photo" class="icon fa-vk"><span class="label"></span></a></li>
+                                    <li><a href="https://instagram.com/nastenka_kshk/" class="icon fa-instagram"><span></span></a></li>
+                                    <li><a href="https://twitter.com/murkamur1995" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+									<li><a href="https://www.facebook.com/profile.php?id=100008995661742" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+									<!--
+									<li><a href="#" class="icon fa-rss"><span>RSS</span></a></li>
+									<li><a href="#" class="icon fa-instagram"><span>Instagram</span></a></li>
+									<li><a href="#" class="icon fa-foursquare"><span>Foursquare</span></a></li>
+									<li><a href="#" class="icon fa-skype"><span>Skype</span></a></li>
+									<li><a href="#" class="icon fa-soundcloud"><span>Soundcloud</span></a></li>
+									<li><a href="#" class="icon fa-youtube"><span>YouTube</span></a></li>
+									<li><a href="#" class="icon fa-blogger"><span>Blogger</span></a></li>
+									<li><a href="#" class="icon fa-flickr"><span>Flickr</span></a></li>
+									<li><a href="#" class="icon fa-vimeo"><span>Vimeo</span></a></li>
+									-->
+								</ul>
+								<hr />
+							</div>
+						</div>
+					</div>
+					<footer>
+						<ul id="copyright">
+							<li>&copy; 2015 Artyom Koshko. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li><li>Photo: Anastasia Travkina<li>
+						</ul>
+					</footer>
+				</article>
+				        <noindex>
+							<div>
+                                <!--LiveInternet logo--><a href="//www.liveinternet.ru/click"
+                                target="_blank" rel=”nofollow”><img src="//counter.yadro.ru/logo?50.3"
+                                title="LiveInternet"
+                                alt="" border="0" width="31" height="31"/></a><!--/LiveInternet-->
+							</div>
+						</noindex>
+			</div>
+
+	</body>
+</html>

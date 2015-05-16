@@ -1,0 +1,249 @@
+<!DOCTYPE HTML>
+<!--
+	Miniport by HTML5 UP
+	html5up.net | @n33co
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+{% load staticfiles %}
+{% load thumbnail %}
+
+        <!--[if lte IE 8]><script src="{% static 'photo/css/ie/html5shiv.js' %}"></script><![endif]-->
+<script src="{% static 'photo/js/jquery.min.js' %}"></script>
+<script src="{% static 'photo/js/skel.min.js' %}"></script>
+<script src="{% static 'photo/js/jquery.scrolly.min.js' %}"></script>
+<script src="{% static 'photo/js/init.js' %}"></script>
+<script src="{% static 'photo/js/jquery.validationEngine-ru.js' %}"></script>
+<script src="{% static 'photo/js/jquery.validationEngine.js' %}"></script>
+
+
+<script>
+      jQuery(document).ready(function(){
+        // binds form submission and fields to the validation engine
+        jQuery("#formID").validationEngine();
+      });
+
+      /**
+      *
+      * @param {jqObject} the field where the validation applies
+      * @param {Array[String]} validation rules for this field
+      * @param {int} rule index
+      * @param {Map} form options
+      * @return an error string if validation failed
+      */
+    </script>
+
+<link rel="stylesheet" type="text/css" href="{% static 'photo/css/skel.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'photo/css/style.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'photo/css/style-desktop.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'photo/css/validationEngine.jquery.css' %}" />
+
+        <!--[if lte IE 8]><link rel="stylesheet" href="{% static 'photo/css/ie/v8.css' %}" /><![endif]-->
+		<!--[if lte IE 9]><link rel="stylesheet" href="{% static 'photo/css/ie/v9.css' %}" /><![endif]-->
+
+<head lang="en">
+        <meta name="google-site-verification" content="Z5Z69EciZZPoRFd3yjkV1lMqpvY2A71z-xjdtkvjiek" />
+		<title>Фотограф Анастасия Травкина</title>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="description" content="Сайт семейного фотографа Анастасии Травкиной. Направления, в которых я работаю: свадебная съемка, пленер, семейная съемка, любовные истории, студийная съемка" />
+		<meta name="keywords" content="фотография фотограф Тула Анастасия Травкина свадебная семейная студийная пленер фотосъемка фото съемка" />
+        <link rel="icon" href="{% static 'photo/images/favicon.ico' %}" type="image/x-icon">
+        <link rel="shortcut icon" href="{% static 'photo/images/favicon.ico' %}" type="image/x-icon">
+        <script src='https://www.google.com/recaptcha/api.js'></script>
+	</head>
+	<body>
+	
+        <!--LiveInternet counter-->
+        <script type="text/javascript"><!--
+        new Image().src = "//counter.yadro.ru/hit?r"+
+        escape(document.referrer)+((typeof(screen)=="undefined")?"":
+        ";s"+screen.width+"*"+screen.height+"*"+(screen.colorDepth?
+        screen.colorDepth:screen.pixelDepth))+";u"+escape(document.URL)+
+        ";"+Math.random();//--></script>
+        <!--/LiveInternet-->
+        
+		<!-- Nav -->
+			<nav id="nav">
+				<ul class="container">
+					<li><a href="#top">Главная</a></li>
+					<li><a href="#work">Направления</a></li>
+					<li><a href="#portfolio">Портфолио</a></li>
+					<li><a href="#contact">Обратная связь</a></li>
+				</ul>
+			</nav>
+
+		<!-- Home -->
+			<div class="wrapper style1 first">
+				<article class="container" id="top">
+					<div class="row">
+						<div class="4u">
+							<span class="image fit"><img src="{% static 'photo/images/pic00.jpg' %}" alt="" /></span>
+						</div>
+						<div class="8u">
+							<header>
+								<h2>Привет! Меня зовут <strong>Травкина Анастасия</strong>.</h2>
+							</header>
+							<p> Я фотограф из Тулы. Люблю то, что делаю. Об остальном пусть расскажут мои фотографии.</p>
+						    <a href="#work" class="button big scrolly">Узнать больше</a>
+						</div>
+					</div>
+				</article>
+			</div>
+
+		<!-- Work -->
+			<div class="wrapper style2">
+				<article id="work">
+					<header>
+						<h2>Основные направления, в которых я работаю.</h2>
+						<p>Я стараюсь постоянно развиваться в каждом из этих направлений.</p>
+					</header>
+					<div class="container">
+						<div class="row">
+							<div class="4u">
+								<section class="box style1">
+									<span class="image fit"><img src="{% static 'photo/images/pic07.jpg' %}" alt="" /></span>
+									<h3>Свадебная фотография</h3>
+									<p>Такой важный момент жизни должен быть незабываемым.</p>
+								</section>
+							</div>
+							<div class="4u">
+								<section class="box style1">
+									<span class="image fit"><img src="{% static 'photo/images/pic08.jpg' %}" alt="" /></span>
+									<h3>Персональный портрет</h3>
+									<p>Каждый человек - это маленькая вселенная.</p>
+								</section>
+							</div>
+							<div class="4u">
+								<section class="box style1">
+									<span class="image fit"><img src={% static 'photo/images/pic09.jpg' %} alt="" /></span>
+                                    <h3>Семейный портрет</h3>
+									<p>Семейные фотографии - это именно те фотографии, которые согревают.</p>
+								</section>
+							</div>
+						</div>
+					</div>
+					<footer>
+						<p>Фотографирую на улице и в студии. Реализуем Ваши идеи вместе!</p>
+						<a href="#portfolio" class="button big scrolly">Посмотреть портфолио</a>
+					</footer>
+				</article>
+			</div>
+
+		<!-- Portfolio -->
+			<div class="wrapper style3">
+				<article id="portfolio">
+					<header>
+						<h2>Я помню, как создавалась каждая из этих фотографий...</h2>
+						<p>Приятного просмотра, дорогие друзья!</p>
+					</header>
+					<div class="container">
+						<div class="row">
+                        {% for album in albums %}
+							<div class="4u">
+								<article class="box style2">
+                                    {% thumbnail album.album_thumbnail "384x269" crop="center" as thumb %}
+                                        <a href="{% url 'photo:albums' album.id %}" class="image featured"><img src="{{ thumb.url }}" width="{{ thumb.width }}" height="{{ thumb.height }}" alt="" /></a>
+                                    {% endthumbnail %}
+									<h3><a href="{% url 'photo:albums' album.id %}">{{ album.name }}</a></h3>
+									<p>{{ album.description }}</p>
+								</article>
+							</div>
+                        {% endfor %}
+						</div>
+					</div>
+					<footer>
+						<p>Вам понравились мои работы? Тогда свяжитесь со мной. </p>
+						<a href="#contact" class="button big scrolly">Написать письмо</a>
+					</footer>
+				</article>
+			</div>
+
+		<!-- Contact -->
+			<div class="wrapper style4">
+				<article id="contact" class="container 75%">
+					<header>
+						<h2>Напишите мне письмо.</h2>
+						<p>Задавайте вопросы, я Вам обязательно отвечу.</p>
+					</header>
+					<div>
+						<div class="row">
+							<div class  ="12u">
+								<form method="post" action="{% url 'photo:feedback' %}" id="formID">
+                                    {% csrf_token %}
+									<div>
+										<div class="row">
+											<div class="6u">
+                                                {{ form.name }}
+											</div>
+											<div class="6u">
+                                                {{ form.email }}
+											</div>
+										</div>
+										<div class="row">
+											<div class="12u">
+                                                {{ form.subject }}
+											</div>
+										</div>
+										<div class="row">
+											<div class="12u">
+                                                {{ form.message }}
+											</div>
+										</div>
+										<div class="row">
+                                            <div class="12u">
+                                                <div class="g-recaptcha" style="width: 300px; margin: auto;" data-theme="dark" data-sitekey="6LeekwQTAAAAAKjKmCrLIbxLwtAdbdvQGb4srchd"></div>
+                                            </div>
+                                        </div>
+										<div class="row 200%">
+											<div class="12u">
+												<ul class="actions">
+													<li><input type="submit" class="submit" value="Отправить" /></li>
+													<li><input type="reset" value="Очистить" class="alt" /></li>
+												</ul>
+											</div>
+										</div>
+									</div>
+								</form>
+							</div>
+						</div>
+						<div class="row">
+							<div class="12u">
+								<hr />
+								<h3>Ищите меня в социальных сетях</h3>
+								<ul class="social">
+									<li><a href="http://vk.com/travkina.anastasia_photo" class="icon fa-vk"><span class="label"></span></a></li>
+                                    <li><a href="https://instagram.com/nastenka_kshk/" class="icon fa-instagram"><span></span></a></li>
+                                    <li><a href="https://twitter.com/murkamur1995" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+									<li><a href="https://www.facebook.com/profile.php?id=100008995661742" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+									<!--
+									<li><a href="#" class="icon fa-rss"><span>RSS</span></a></li>
+									<li><a href="#" class="icon fa-instagram"><span>Instagram</span></a></li>
+									<li><a href="#" class="icon fa-foursquare"><span>Foursquare</span></a></li>
+									<li><a href="#" class="icon fa-skype"><span>Skype</span></a></li>
+									<li><a href="#" class="icon fa-soundcloud"><span>Soundcloud</span></a></li>
+									<li><a href="#" class="icon fa-youtube"><span>YouTube</span></a></li>
+									<li><a href="#" class="icon fa-blogger"><span>Blogger</span></a></li>
+									<li><a href="#" class="icon fa-flickr"><span>Flickr</span></a></li>
+									<li><a href="#" class="icon fa-vimeo"><span>Vimeo</span></a></li>
+									-->
+								</ul>
+								<hr />
+							</div>
+						</div>
+					</div>
+					<footer>
+						<ul id="copyright">
+							<li>&copy; 2015 Artyom Koshko. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li><li>Photo: Anastasia Travkina<li>
+						</ul>
+						
+					</footer>
+				</article>
+							<div>
+                                <!--LiveInternet logo--><a href="//www.liveinternet.ru/click"
+                                target="_blank" rel=”nofollow”><img src="//counter.yadro.ru/logo?50.3"
+                                title="LiveInternet"
+                                alt="" border="0" width="31" height="31"/></a><!--/LiveInternet-->
+							</div>
+			</div>
+	</body>
+</html>

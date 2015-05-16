@@ -1,0 +1,91 @@
+<!DOCTYPE HTML>
+<!--
+	Miniport by HTML5 UP
+	html5up.net | @n33co
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+{% load staticfiles %}
+{% load thumbnail %}
+
+        <!--[if lte IE 8]><script src="{% static 'photo/css/ie/html5shiv.js' %}"></script><![endif]-->
+<script src="{% static 'photo/js/jquery.min.js' %}"></script>
+<script src="{% static 'photo/js/skel.min.js' %}"></script>
+<script src="{% static 'photo/js/jquery.scrolly.min.js' %}"></script>
+<script src="{% static 'photo/js/init.js' %}"></script>
+
+
+<link rel="stylesheet" type="text/css" href="{% static 'photo/css/skel.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'photo/css/style.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'photo/css/style-desktop.css' %}" />
+
+        <!--[if lte IE 8]><link rel="stylesheet" href="{% static 'photo/css/ie/v8.css' %}" /><![endif]-->
+		<!--[if lte IE 9]><link rel="stylesheet" href="{% static 'photo/css/ie/v9.css' %}" /><![endif]-->
+
+<head lang="en">
+		    <title>Фотограф Анастасия Травкина</title>
+            <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+            <meta name="description" content="" />
+            <meta name="keywords" content="" />
+            <link rel="icon" href="{% static 'photo/images/favicon.ico' %}" type="image/x-icon">
+            <link rel="shortcut icon" href="{% static 'photo/images/favicon.ico' %}" type="image/x-icon">
+            <meta charset="UTF-8">
+	</head>
+	<body>
+
+		<!-- Nav -->
+			<nav id="nav">
+				<ul class="container">
+					<li><a href="{% url 'photo:index' %}">Главная</a></li>
+				</ul>
+			</nav>
+
+		<!-- Feedback -->
+			<div class="wrapper style2">
+				<article id="work">
+					<header>
+						<h2>Упс! Похоже что-то пошло не так!</h2>
+						<p>Произошла какая-то ошибка. Может быть Вы ошиблись, заполняя форму? Если нет, то мы скоро всё исправим!</p>
+					</header>
+				</article>
+			</div>
+
+		<!-- Contact -->
+        {% block contact %}
+        <div class="wrapper style4">
+				<article id="contact" class="container 75%">
+					<div>
+						<div class="row">
+							<div class="12u">
+								<h3>Ищите меня в социальных сетях</h3>
+								<ul class="social">
+									<li><a href="http://vk.com/travkina.anastasia_photo" class="icon fa-vk"><span class="label"></span></a></li>
+                                    <li><a href="https://instagram.com/nastenka_kshk/" class="icon fa-instagram"><span></span></a></li>
+                                    <li><a href="https://twitter.com/murkamur1995" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+									<li><a href="https://www.facebook.com/profile.php?id=100008995661742" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+									<!--
+									<li><a href="#" class="icon fa-rss"><span>RSS</span></a></li>
+									<li><a href="#" class="icon fa-instagram"><span>Instagram</span></a></li>
+									<li><a href="#" class="icon fa-foursquare"><span>Foursquare</span></a></li>
+									<li><a href="#" class="icon fa-skype"><span>Skype</span></a></li>
+									<li><a href="#" class="icon fa-soundcloud"><span>Soundcloud</span></a></li>
+									<li><a href="#" class="icon fa-youtube"><span>YouTube</span></a></li>
+									<li><a href="#" class="icon fa-blogger"><span>Blogger</span></a></li>
+									<li><a href="#" class="icon fa-flickr"><span>Flickr</span></a></li>
+									<li><a href="#" class="icon fa-vimeo"><span>Vimeo</span></a></li>
+									-->
+								</ul>
+								<hr />
+							</div>
+						</div>
+					</div>
+					<footer>
+						<ul id="copyright">
+							<li>&copy; 2015 Artyom Koshko. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li><li>Photo: Anastasia Travkina<li>
+						</ul>
+					</footer>
+				</article>
+			</div>
+    {% endblock %}
+	</body>
+</html>

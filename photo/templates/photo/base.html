@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+{% load staticfiles %}
+{% load thumbnail %}
+
+{% block scripts %}
+    <!--[if lte IE 8]><script src="{% static 'photo/css/ie/html5shiv.js' %}"></script><![endif]-->
+<script src="{% static 'photo/js/jquery.min.js' %}"></script>
+<script src="{% static 'photo/js/skel.min.js' %}"></script>
+<script src="{% static 'photo/js/jquery.scrolly.min.js' %}"></script>
+<script src="{% static 'photo/js/init.js' %}"></script>
+<script src="{% static 'photo/js/jquery.validationEngine-ru.js' %}"></script>
+<script src="{% static 'photo/js/jquery.validationEngine.js' %}"></script>
+
+<script>
+      jQuery(document).ready(function(){
+        // binds form submission and fields to the validation engine
+        jQuery("#formID").validationEngine();
+      });
+
+      /**
+      *
+      * @param {jqObject} the field where the validation applies
+      * @param {Array[String]} validation rules for this field
+      * @param {int} rule index
+      * @param {Map} form options
+      * @return an error string if validation failed
+      */
+    </script>
+
+<link rel="stylesheet" type="text/css" href="{% static 'photo/css/skel.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'photo/css/style.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'photo/css/style-desktop.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'photo/css/validationEngine.jquery.css' %}" />
+
+        <!--[if lte IE 8]><link rel="stylesheet" href="{% static 'photo/css/ie/v8.css' %}" /><![endif]-->
+		<!--[if lte IE 9]><link rel="stylesheet" href="{% static 'photo/css/ie/v9.css' %}" /><![endif]-->
+{% endblock %}
+
+<head lang="en">
+        {% block head %}
+            <title>Фотограф Анастасия Травкина</title>
+            <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+            <meta name="description" content="" />
+            <meta name="keywords" content="" />
+            <link rel="icon" href="{% static 'photo/images/favicon.ico' %}" type="image/x-icon">
+            <link rel="shortcut icon" href="{% static 'photo/images/favicon.ico' %}" type="image/x-icon">
+            <meta charset="UTF-8">
+        {% endblock %}
+</head>
+<body>
+
+    {% block nav %}
+        <nav id="nav">
+				<ul class="container">
+					<li><a href="{% url 'photo:index' %}">Главная</a></li>
+				</ul>
+			</nav>
+    {% endblock %}
+
+    {% block home %}
+    {% endblock %}
+
+    {% block work %}
+    {% endblock %}
+
+    {% block portfolio %}
+    {% endblock %}
+
+    {% block contact %}
+        <div class="wrapper style4">
+				<article id="contact" class="container 75%">
+					<header>
+						<h2>Напишите мне письмо.</h2>
+						<p>Задавайте вопросы, я Вам обязательно отвечу.</p>
+					</header>
+					<div>
+						<div class="row">
+							<div class  ="12u">
+								<form method="post" action="{% url 'photo:feedback' %}" id="formID">
+                                    {% csrf_token %}
+									<div>
+										<div class="row">
+											<div class="6u">
+                                                {{ form.name }}
+											</div>
+											<div class="6u">
+                                                {{ form.email }}
+											</div>
+										</div>
+										<div class="row">
+											<div class="12u">
+                                                {{ form.subject }}
+											</div>
+										</div>
+										<div class="row">
+											<div class="12u">
+                                                {{ form.message }}
+											</div>
+										</div>
+										<div class="row 200%">
+											<div class="12u">
+												<ul class="actions">
+                                                    {{ form.recaptcha.errors|join:", " }}
+                                                    <br>
+                                                    {{ form.recaptcha }}
+                                                    <br>
+                                                    <br>
+													<li><input type="submit" class="submit" value="Отправить" /></li>
+													<li><input type="reset" value="Очистить" class="alt" /></li>
+												</ul>
+											</div>
+										</div>
+									</div>
+								</form>
+							</div>
+						</div>
+						<div class="row">
+							<div class="12u">
+								<hr />
+								<h3>Ищите меня в социальных сетях</h3>
+								<ul class="social">
+									<li><a href="http://vk.com/travkina.anastasia_photo" class="icon fa-vk"><span class="label"></span></a></li>
+                                    <li><a href="https://instagram.com/nastenka_kshk/" class="icon fa-instagram"><span></span></a></li>
+                                    <li><a href="https://twitter.com/murkamur1995" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+									<li><a href="https://www.facebook.com/profile.php?id=100008995661742" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+									<!--
+									<li><a href="#" class="icon fa-rss"><span>RSS</span></a></li>
+									<li><a href="#" class="icon fa-instagram"><span>Instagram</span></a></li>
+									<li><a href="#" class="icon fa-foursquare"><span>Foursquare</span></a></li>
+									<li><a href="#" class="icon fa-skype"><span>Skype</span></a></li>
+									<li><a href="#" class="icon fa-soundcloud"><span>Soundcloud</span></a></li>
+									<li><a href="#" class="icon fa-youtube"><span>YouTube</span></a></li>
+									<li><a href="#" class="icon fa-blogger"><span>Blogger</span></a></li>
+									<li><a href="#" class="icon fa-flickr"><span>Flickr</span></a></li>
+									<li><a href="#" class="icon fa-vimeo"><span>Vimeo</span></a></li>
+									-->
+								</ul>
+								<hr />
+							</div>
+						</div>
+					</div>
+					<footer>
+						<ul id="copyright">
+							<li>&copy; 2015 Artyom Koshko. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li><li>Photo: Anastasia Travkina<li>
+						</ul>
+					</footer>
+				</article>
+			</div>
+    {% endblock %}
+</body>
+</html>

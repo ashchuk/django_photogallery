@@ -1,0 +1,156 @@
+<!DOCTYPE HTML>
+<!--
+	Miniport by HTML5 UP
+	html5up.net | @n33co
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+{% load staticfiles %}
+{% load thumbnail %}
+
+        <!--[if lte IE 8]><script src="{% static 'photo/css/ie/html5shiv.js' %}"></script><![endif]-->
+<script src="{% static 'photo/js/jquery.min.js' %}"></script>
+<script src="{% static 'photo/js/skel.min.js' %}"></script>
+<script src="{% static 'photo/js/jquery.scrolly.min.js' %}"></script>
+<script src="{% static 'photo/js/init.js' %}"></script>
+
+<link rel="stylesheet" type="text/css" href="{% static 'photo/css/skel.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'photo/css/style.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'photo/css/style-desktop.css' %}" />
+
+        <!--[if lte IE 8]><link rel="stylesheet" href="{% static 'photo/css/ie/v8.css' %}" /><![endif]-->
+		<!--[if lte IE 9]><link rel="stylesheet" href="{% static 'photo/css/ie/v9.css' %}" /><![endif]-->
+
+<head lang="en">
+		<title>Фотограф Анастасия Травкина</title>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+	</head>
+	<body>
+
+		<!-- Nav -->
+			<nav id="nav">
+				<ul class="container">
+                    <li><a href="http://127.0.0.1:8000/index">Home</a></li>
+					<li><a href="#portfolio">Portfolio</a></li>
+					<li><a href="#contact">Contact</a></li>
+				</ul>
+			</nav>
+
+		<!-- Portfolio -->
+			<div class="wrapper style3">
+				<article id="portfolio">
+					<header>
+						<h2>Here’s some stuff I made recently.</h2>
+						<p>Category's name: <strong>{{ category.name }}</strong></p>
+                        <p>Category's description: <strong>{{ category.description }}</strong></p>
+					</header>
+					<div class="container">
+                        <div class="row">
+                            {% for album in category.album_set.all %}
+							<div class="4u">
+								<article class="box style2">
+                                    {% thumbnail album.album_thumbnail "384x269" crop="center" as thumb %}
+                                        <a href="{% url 'photo:albums' album.id %}" class="image featured"><img src="{{ thumb.url }}" width="{{ thumb.width }}" height="{{ thumb.height }}" alt="" /></a>
+                                    {% endthumbnail %}
+									<h3><a href="{% url 'photo:albums' album.id %}">{{ album.name }}</a></h3>
+									<p>{{ album.description }}</p>
+								</article>
+							</div>
+                            {% endfor %}
+						</div>
+					</div>
+					<footer>
+						<p>Lorem ipsum dolor sit sapien vestibulum ipsum primis?</p>
+						<a href="#contact" class="button big scrolly">Get in touch with me</a>
+					</footer>
+				</article>
+			</div>
+
+		<!-- Contact -->
+			<div class="wrapper style4">
+				<article id="contact" class="container 75%">
+					<header>
+						<h2>Have me make stuff for you.</h2>
+						<p>Ornare nulla proin odio consequat sapien vestibulum ipsum sed lorem.</p>
+					</header>
+					<div>
+						<div class="row">
+							<div class="12u">
+								<form method="post" action="{% url 'photo:index' %}" id="formID">
+                                    {% csrf_token %}
+									<div>
+										<div class="row">
+											<div class="6u">
+                                                {{ form.name }}
+											</div>
+											<div class="6u">
+                                                {{ form.email }}
+											</div>
+										</div>
+										<div class="row">
+											<div class="12u">
+                                                {{ form.subject }}
+											</div>
+										</div>
+										<div class="row">
+											<div class="12u">
+                                                {{ form.message }}
+											</div>
+										</div>
+										<div class="row 200%">
+											<div class="12u">
+												<ul class="actions">
+                                                    {{ form.recaptcha.errors|join:", " }}
+                                                    <br>
+                                                    {{ form.recaptcha }}
+                                                    <br>
+                                                    <br>
+													<li><input type="submit" class="submit" value="Send Message" /></li>
+													<li><input type="reset" value="Clear Form" class="alt" /></li>
+												</ul>
+											</div>
+										</div>
+									</div>
+								</form>
+							</div>
+						</div>
+						<div class="row">
+							<div class="12u">
+								<hr />
+								<h3>Find me on ...</h3>
+								<ul class="social">
+									<li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+									<li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+									<li><a href="#" class="icon fa-dribbble"><span class="label">Dribbble</span></a></li>
+									<li><a href="#" class="icon fa-linkedin"><span class="label">LinkedIn</span></a></li>
+									<li><a href="#" class="icon fa-tumblr"><span class="label">Tumblr</span></a></li>
+									<li><a href="#" class="icon fa-google-plus"><span class="label">Google+</span></a></li>
+									<li><a href="#" class="icon fa-github"><span class="label">Github</span></a></li>
+									<!--
+									<li><a href="#" class="icon fa-rss"><span>RSS</span></a></li>
+									<li><a href="#" class="icon fa-instagram"><span>Instagram</span></a></li>
+									<li><a href="#" class="icon fa-foursquare"><span>Foursquare</span></a></li>
+									<li><a href="#" class="icon fa-skype"><span>Skype</span></a></li>
+									<li><a href="#" class="icon fa-soundcloud"><span>Soundcloud</span></a></li>
+									<li><a href="#" class="icon fa-youtube"><span>YouTube</span></a></li>
+									<li><a href="#" class="icon fa-blogger"><span>Blogger</span></a></li>
+									<li><a href="#" class="icon fa-flickr"><span>Flickr</span></a></li>
+									<li><a href="#" class="icon fa-vimeo"><span>Vimeo</span></a></li>
+									-->
+								</ul>
+								<hr />
+							</div>
+						</div>
+					</div>
+					<footer>
+						<ul id="copyright">
+							<li>&copy; Untitled. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+						</ul>
+					</footer>
+				</article>
+			</div>
+
+	</body>
+</html>
